@@ -1,0 +1,4 @@
+databaseChangeLog:
+  - include:
+      file: 2024/changelog_2024.yaml
+      relativeToChangelogFile: true

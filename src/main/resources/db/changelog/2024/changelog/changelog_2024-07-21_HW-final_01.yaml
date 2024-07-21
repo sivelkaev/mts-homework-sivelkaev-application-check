@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      id: HW-final
+      author: gasivelkay
+      labels: 2024.07.21
+      comment: "HW-final - Создание таблицы клиентов client"
+      preConditions:
+        - onFail: HALT
+        - not:
+            - tableExists:
+                tableName: client
+      changes:
+        - sql:
+            sql: "CREATE TABLE client (
+                    id serial PRIMARY KEY,
+                    first_name varchar(50) NOT NULL,
+                    middle_name varchar(50),
+                    last_name varchar(50) NOT NULL,
+                    birth_date date NOT NULL,
+                    passport_number varchar(10) NOT NULL,
+                    account_creation_enabled boolean
+                  )"
+
+      rollback:
+        - dropTable:
+            tableName: client

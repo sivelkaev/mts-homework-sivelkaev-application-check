@@ -1,0 +1,20 @@
+spring:
+  liquibase:
+    change-log: 'classpath:/db/changelog/db.changelog-master.yaml'
+  kafka:
+    consumer:
+      auto-offset-reset: earliest
+      enable-auto-commit: false
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      properties:
+        allow:
+          auto:
+            create:
+              topics: false
+        isolation:
+          level: read_committed
+    listener:
+      type: SINGLE
+      ack-mode: RECORD
+      missing-topics-fatal: true

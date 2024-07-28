@@ -1,0 +1,10 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mts_homework_sivelkaev_application_check_db?prepareThreshold=0
+    username: sivelkaev
+    password: 1234
+  kafka:
+    bootstrap-servers: localhost:29092
